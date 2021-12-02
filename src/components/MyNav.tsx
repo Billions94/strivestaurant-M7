@@ -1,13 +1,17 @@
 import { Navbar, Nav } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 
-const MyNav = (props) => {
+interface MyNavProps {
+  title: string;
+}
+
+const MyNav = ({ title }:MyNavProps) => {
   const location = useLocation();
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Link to="/">
-        <Navbar.Brand>{props.title}</Navbar.Brand>
+        <Navbar.Brand>{title}</Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
@@ -18,7 +22,7 @@ const MyNav = (props) => {
                 location.pathname === "/" ? "nav-link active" : "nav-link"
               }
             >
-              Home
+             Home 
             </div>
           </Link>
           <Link to="/menu">
